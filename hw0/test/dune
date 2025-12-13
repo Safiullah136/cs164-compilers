@@ -1,0 +1,5 @@
+(test
+ (name test_hw0)
+ (libraries hw0 ounit2)
+ (action
+  (run %{test} -display false -ci true)))

@@ -1,0 +1,7 @@
+(library
+ (name hw0))
+
+(env
+ (dev
+  (flags
+   (:standard -warn-error -A))))

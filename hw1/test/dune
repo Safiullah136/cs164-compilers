@@ -1,0 +1,10 @@
+(tests
+ (names test_s_exp test_arith)
+ (libraries s_exp lib ounit2)
+ (action
+  (run %{test} -display false -ci true)))
+
+(env
+ (dev
+  (flags
+   (:standard -warn-error -A))))

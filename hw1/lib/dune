@@ -1,0 +1,8 @@
+(library
+ (name lib)
+ (libraries s_exp))
+
+(env
+ (dev
+  (flags
+   (:standard -warn-error -A))))
