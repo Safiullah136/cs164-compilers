@@ -1,0 +1,17 @@
+(char? #\space), true
+(char? #\!), true 
+(char? #\}), true
+(char? #\~), true
+(char? #\A), true
+
+(char->num #\space), 32
+(char->num #\!), 33
+(char->num #\}), 125
+(char->num #\~), 126
+
+(num->char 32), #\space
+(num->char 33), #\!
+(num->char 125), #\}
+(num->char 126), #\~
+
+#\space, #\space
