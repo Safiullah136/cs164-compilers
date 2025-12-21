@@ -1,0 +1,24 @@
+(print "Hello"), "Hello"
+(print "Hello\n"), "Hello\n"
+(print "Hello\""), "Hello\""
+(print "Hi \"Ali\""), "Hi \"Ali\""
+
+(print "\nHi \"Ali\"\n"), "\nHi \"Ali\"\n"
+
+(print stdin), <in-channel>
+(print stdout), <out-channel>
+
+(open-out "hello.txt")
+(open-in "hello.txt")
+(print (close-in (open-in "hello.txt"))), true
+(print (close-out (open-out "hello.txt"))), true
+
+(output stdout "HelloWorld\000")
+
+(print (input stdin 5)), Hello, "Hello"
+
+(print (let ((f (open-out "hello.txt"))) (do (output f "Hello World!\000") (close-out f) ))), true
+
+(print (let ((f (open-in "hello.txt"))) (let ((s (input f 7))) (do (close-in f) s ) ) )), "Hello W"
+
+(output stdout (input stdin 1)), a, a, b, b
