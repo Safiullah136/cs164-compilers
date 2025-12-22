@@ -22,3 +22,5 @@
 (print (let ((f (open-in "hello.txt"))) (let ((s (input f 7))) (do (close-in f) s ) ) )), "Hello W"
 
 (output stdout (input stdin 1)), a, a, b, b
+
+(print (let ((f (open-out "tmp/hello.txt"))) (do (output f "Hello World!\000") (close-out f) ))), true

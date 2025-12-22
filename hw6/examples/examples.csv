@@ -1,0 +1,32 @@
+(define (f x y) (+ x y)) (print (apply f (pair 1 (pair 2 ())))), 3
+(define (f x y) (- x y)) (print (apply f (pair 2 (pair 1 ())))), 1
+
+(define (f x y) (- x y)) (define (g x y z) (if (< y x) z (+ z 1))) (print (apply g (pair 2 (pair 1 (pair 10 ()))))), 10
+(define (f x y) (- x y)) (define (g x y z) (if (< y x) z (+ z 1))) (print (apply f (pair 2 (pair 1 (pair 10 ()))))), error
+(define (f x y) (- x y)) (print (apply g (pair 2 (pair 1 (pair 10 ()))))), error
+(define (f x y) (- x y)) (define (g x y z) (if (< y x) z (+ z 1))) (print (apply f (pair 2 (pair 1 10)) )), error
+
+
+(define (f) 1) (print (apply f ())), 1
+(define (f) 1) (print (apply f 1)), error
+(define (f x) x) (print (apply f (pair 1 ()))), 1
+(define (f x) x) (print (apply f ())), error
+
+(define (f a b c ...) (pair a (pair b c))) (print (f 1 2 3 4 5)), (pair 1 (pair 2 (pair 3 (pair 4 (pair 5 ())))))
+(define (add args ...) (if (empty? args) 0 (+ (left args) (apply add (right args))))) (print (add 3 4 5)), 12
+
+(define (f a b c) (pair a (pair b c))) (print (f 1 2 3)), (pair 1 (pair 2 3))
+(define (f a b c ...) (pair a (pair b c))) (print (f 1 2)), (pair 1 (pair 2 ()))
+
+(define (f a ...) (print a)) (f 1 2 3 4 5), (pair 1 (pair 2 (pair 3 (pair 4 (pair 5 ())))))
+(define (f a ...) (print a)) (f), ()
+
+(define (min args ...) (if (empty? args) 1000 (if (< (left args) (apply min (right args)) ) (left args) (apply min (right args)) ) ) ) (print (min 1 2)), 1
+
+(define (max args ...) (if (empty? args) 0 (if (< (left args) (apply max (right args)) ) (apply max (right args)) (left args) ) ) ) (print (max 1 2)), 2
+
+(define (equal a args ...) (if (empty? args) true (if (= (left args) a) (apply equal (pair a (right args))) false) ) ) (print (equal 1 2)), false
+(define (equal a args ...) (if (empty? args) true (if (= (left args) a) (apply equal (pair a (right args))) false) ) ) (print (equal 2 2 2 1)), false
+(define (equal a args ...) (if (empty? args) true (if (= (left args) a) (apply equal (pair a (right args))) false) ) ) (print (equal 2 2 2)), true
+
+(define (f a b c ...) (pair a (pair b c))) (print (f 1)), error
