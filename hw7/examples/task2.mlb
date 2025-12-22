@@ -1,0 +1,10 @@
+function add_up(a, b, c) =
+  a + b = c
+
+let x = 
+  if 
+    add_up(read_num(), read_num(), read_num())
+  then 1
+  else 2 
+in
+print(x)

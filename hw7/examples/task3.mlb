@@ -1,0 +1,7 @@
+print ( ((3) + (4)) );
+newline ();
+print ( ( 5 - 4 + 2 = 2 + 7 - 6) );
+newline ();
+print ( ( 5 + 2 - 4 = 2 + 7 - 6) );
+newline ();
+print ( ( 5 - 4 + 2 < 2 + 7 - 6) )

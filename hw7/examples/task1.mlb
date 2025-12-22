@@ -1,0 +1,15 @@
+function sorted_insert(n, xs) = 
+    if is_empty (xs) then pair (n, nil) else
+    if left (xs) < n 
+    then pair( left (xs), sorted_insert (n, right (xs)) ) 
+    else pair( n, pair (left (xs), right (xs)) )
+
+function insertion_sort(xs) = 
+    if is_empty ( right(xs) ) then xs else
+    sorted_insert( left(xs), insertion_sort ( right(xs) ) )
+
+print (insertion_sort (pair (7, pair (5, pair (2, nil) ) ) ) );
+newline ();
+print (insertion_sort (pair (2, pair (7, pair (5, nil) ) ) ) );
+newline ();
+print (insertion_sort (pair (7, pair (7, pair (5, nil) ) ) ) )
